@@ -1,0 +1,30 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  background-color: white;
+}
+.regular {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+.start {
+  background-image: url("img/primariska1.jpg");
+  padding-bottom: 35%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.about {
+  background-image: url("img/primariska2.jpg");
+  padding-bottom: 55%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.songs {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
