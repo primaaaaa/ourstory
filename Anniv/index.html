@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <script src="../js/bootstrap.js"></script>
+    <title>Anniversary</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Mencegah geser ke kanan */
+      }
+
+      /* Hero Section Fullscreen */
+      .hero {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 1s ease-in-out;
+        padding: 20px;
+      }
+
+      /* Overlay Gelap */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+      }
+
+      /* Konten agar tetap di atas overlay */
+      .hero h1,
+      .hero h5 {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Gift Section */
+      .gift .col-sm-4 {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel {
+        max-width: 800px; /* Sesuaikan dengan ukuran yang kamu inginkan */
+        margin: auto; /* Agar carousel tetap di tengah */
+      }
+      .carousel-caption {
+        background: rgba(0, 0, 0, 0.6); /* Warna hitam transparan */
+        padding: 10px;
+        border-radius: 10px; /* Agar sudutnya tidak tajam */
+      }
+
+      /* Media Query untuk layar HP */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 10px;
+        }
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+        .hero h5 {
+          font-size: 1rem;
+        }
+        .gift .row {
+          flex-direction: column;
+        }
+        .gift .col-sm-4 {
+          width: 80%;
+          margin: 10px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="heroSection" class="hero">
+      <h1 class="fw-bolder pt-5">The Earth has completed its rotation through the sun.</h1>
+      <h5>And in every second, every part of me loves every piece of you.</h5>
+    </section>
+
+    <!-- Short Messages -->
+    <section class="happyAnniv container my-5">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 mt-3 text-center text-md-start">
+          <h3 class="fw-bolder">Happy Anniversary</h3>
+          <p>Tak terasa sudah setahun kita lalui bersama. Dipikir-pikir lucu juga ya, dari saling ga kenal, chat cuma seperlunya, sekarang jadi saling gabisa lepas satu sama lain, meskipun dua-duanya gengsi dikit haha.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gift For You -->
+    <section class="gift mt-3 justify-content-center text-center">
+      <h3 class="mx-auto fw-bolder">See what we've been through:</h3>
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <!-- Generate indicator buttons -->
+          <!-- 16 tombol indikator -->
+          <!-- Loop ini bisa disingkat dengan JavaScript jika ingin lebih dinamis -->
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" aria-label="Slide 8"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8" aria-label="Slide 9"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="9" aria-label="Slide 10"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="10" aria-label="Slide 11"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="11" aria-label="Slide 12"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="12" aria-label="Slide 13"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="13" aria-label="Slide 14"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="14" aria-label="Slide 15"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="15" aria-label="Slide 16"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- 16 gambar -->
+          <div class="carousel-item active">
+            <img src="img/fotbar1.jpg" class="d-block w-100" alt="Slide 1" />
+            <div class="carousel-caption d-md-block">
+              <h5>Fotbar Pertama Kita</h5>
+              <p>Aku masih inget gimana canggungnya kita waktu itu haha.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar4.jpg" class="d-block w-100" alt="Slide 2" />
+            <div class="carousel-caption d-md-block">
+              <h5>Classmeet Terakhir</h5>
+              <p>Ini adalah hari di mana aku denial "kenapa gua jadi kepikiran ama orang ini ya?"</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/boxofhappiness.jpg" class="d-block w-100" alt="Slide 3" />
+            <div class="carousel-caption d-md-block">
+              <h5>Box of Happiness</h5>
+              <p>Aku benar-benar happy setelah buka ini. Kira-kira siapa ya yang ngasih...?</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/TOterbaik.jpg" class="d-block w-100" alt="Slide 4" />
+            <div class="carousel-caption d-md-block">
+              <h5>Dapet TO Terbaik</h5>
+              <p>Sehari sebelumnya abis kecelakaan, besoknya dapet pengumuman gini. Abis tu kita mam es krim</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar5.jpg" class="d-block w-100" alt="Slide 5" />
+            <div class="carousel-caption d-md-block">
+              <h5>Jakarta Selatan, 9 Maret 2024</h5>
+              <p>Hingar bingar Blok M jadi saksi awal cerita kita.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar3.jpg" class="d-block w-100" alt="Slide 6" />
+            <div class="carousel-caption d-md-block">
+              <h5>Ragunan Date</h5>
+              <p>Waktu itu mau cari gajah aja susah banget ya haha.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/perpisahan.jpg" class="d-block w-100" alt="Slide 7" />
+            <div class="carousel-caption d-md-block">
+              <h5>Perpisahan</h5>
+              <p>Padahal ini sehari sebelumnya abis berantem wkwk.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/cfd.jpg" class="d-block w-100" alt="Slide 8" />
+            <div class="carousel-caption d-md-block">
+              <h5>Mewarnai Date versi low budget</h5>
+              <p>Kata bocil ikan aku lebih bagus wlee.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/lulus.jpg" class="d-block w-100" alt="Slide 9" />
+            <div class="carousel-caption d-md-block">
+              <h5>Graduation Day</h5>
+              <p>Momen di mana kita sadar kalau hidup baru aja dimulai.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/malioboroo.jpg" class="d-block w-100" alt="Slide 10" />
+            <div class="carousel-caption d-md-block">
+              <h5>Strolling through Malioboro</h5>
+              <p>Jadi gamon ama suasana Malioboro malem itu.</p>
+            </div>
+          </div>
+          <!-- Tambahan 6 gambar -->
+          <div class="carousel-item">
+            <img src="img/fotbar2.jpg" class="d-block w-100" alt="Slide 11" />
+            <div class="carousel-caption d-md-block">
+              <h5>Ke Blok M Setelah Survei Lokasi UTBK</h5>
+              <p>Ke manapun perginya, ke Blok M cari makannya.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/konserraisa.jpg" class="d-block w-100" alt="Slide 12" />
+            <div class="carousel-caption d-md-block">
+              <h5>Nonton Konser Raisa di SMB</h5>
+              <p>Setelah khawatir karena hujan ga berenti-berenti, akhirnya kesampean juga ya.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar7.jpg" class="d-block w-100" alt="Slide 13" />
+            <div class="carousel-caption d-md-block">
+              <h5>Galnas Date</h5>
+              <p>Setelah sekian purnama, akhirnya kesampean juga ke Galnas. Harusnya sih waktu jadian kita kunjung ke sini tapi gajadi wkwk.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar8.jpg" class="d-block w-100" alt="Slide 14" />
+            <div class="carousel-caption d-md-block">
+              <h5>Bogor Date</h5>
+              <p>Bahkan langit Bogor tersenyum akan kehadiran kamu.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/fotbar6.jpg" class="d-block w-100" alt="Slide 15" />
+            <div class="carousel-caption d-md-block">
+              <h5>Kunjung ke Pameran di TIM</h5>
+              <p>Ini kedua kalinya kita ke TIM. Abis itu pulangnya ke Blok M beli Mango Sticky Rice.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/2025.jpg" class="d-block w-100" alt="Slide 16" />
+            <div class="carousel-caption d-md-block">
+              <h5>New Year 2025</h5>
+              <p>Going to 2025 with the person I met in 2023. Masih banyak cerita seru yang menanti kita.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#LetterModal">A Letter for You</button>
+    </section>
+
+    <!-- Modal -->
+
+    <!-- Love Letter Modal -->
+    <div class="modal fade" id="LetterModal" tabindex="-1" aria-labelledby="LetterModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="LetterModalLabel">A Letter For You</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Surprise! Ini surat cinta untukmu ❤️</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Voucher Modal -->>
+  </body>
+
+  <script>
+    const images = ["img/fotbar1.jpg", "img/fotbar2.jpg", "img/fotbar3.jpg", "img/fotbar4.jpg", "img/fotbar5.jpg", "img/fotbar6.jpg", "img/fotbar7.jpg", "img/fotbar8.jpg", "img/fotbar9.jpg"];
+
+    let currentIndex = 0;
+    const heroSection = document.getElementById("heroSection");
+
+    function changeBackground() {
+      currentIndex = (currentIndex + 1) % images.length;
+      heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+    }
+
+    heroSection.style.backgroundImage = `url('${images[0]}')`;
+    setInterval(changeBackground, 2000);
+  </script>
+</html>
