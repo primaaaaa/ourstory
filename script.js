@@ -63,8 +63,6 @@ function goPrevPage() {
 // --- KODE PENGHITUNG WAKTU (TIMER) ---
 // --- KODE PENGHITUNG WAKTU (TIMER) ---
 function updateLoveTimer() {
-  // Ganti tahun di sini. Jika 2026 belum terlewat, hasilnya akan 0.
-  // Sebagai contoh, aku ganti ke 2025 agar angkanya muncul.
   const startDate = new Date("2024-03-09T00:00:00");
   const currentDate = new Date();
 
@@ -72,33 +70,19 @@ function updateLoveTimer() {
   const timeDifference = currentDate.getTime() - startDate.getTime();
   const totalDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
+  const timerElement = document.getElementById("love-timer");
+
   // Jika hari ini belum mencapai tanggal yang ditentukan
   if (currentDate < startDate) {
-    document.getElementById("love-timer").innerHTML = "0 Tahun, 0 Bulan, 0 Hari";
+    if (timerElement) {
+      timerElement.innerHTML = "0 Days";
+    }
     return;
   }
 
-  let years = currentDate.getFullYear() - startDate.getFullYear();
-  let months = currentDate.getMonth() - startDate.getMonth();
-  let days = currentDate.getDate() - startDate.getDate();
-
-  // Koreksi jika hari bernilai negatif
-  if (days < 0) {
-    months--;
-    const previousMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-    days += previousMonth.getDate();
-  }
-
-  // Koreksi jika bulan bernilai negatif
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  // Tampilkan ke dalam elemen HTML beserta Total Harinya
-  const timerElement = document.getElementById("love-timer");
+  // Tampilkan hanya total hari ke dalam elemen HTML
   if (timerElement) {
-    timerElement.innerHTML = `${years} Tahun, ${months} Bulan, ${days} Hari <br><span style="font-size: 1rem; font-weight: normal;">(Total: ${totalDays} Hari)</span>`;
+    timerElement.innerHTML = `${totalDays} Days`;
   }
 }
 
