@@ -1,30 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
-  font-family: "Josefin Sans", sans-serif;
+  width: 100%;
+  height: 100vh; /* Kunci tinggi persis sebesar layar */
+  overflow: hidden; /* Mengunci scroll horizontal DAN vertikal di HP */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdf0d5;
+  font-family: "Playpen Sans Thai", cursive;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
-  background-color: white;
+  color: #004aad;
+  touch-action: none; /* Mencegah pull-to-refresh dan scroll paksa di HP */
 }
-.regular {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* --- BOOK CONFIGURATION --- */
+.book {
+  position: relative;
+  width: clamp(150px, 40vw, 320px);
+  aspect-ratio: 7 / 10;
+  perspective: 1500px;
+  transition: transform 0.6s ease;
+  transform: translateX(0%);
+}
+
+.book.open {
+  transform: translateX(50%);
+}
+
+.book.closed-back {
+  transform: translateX(100%);
+}
+
+.paper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition: transform 0.6s ease;
+  border-radius: 6px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.paper.flipped {
+  transform: rotateY(-180deg);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #e4e2dd;
+  backface-visibility: hidden;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.front {
+  z-index: 1;
+  border-left: 3px solid #e4e2dd;
+}
+
+.back {
+  transform: rotateY(180deg);
+  border-right: 3px solid #e4e2dd;
+}
+
+/* --- CONTENT STYLING --- */
+.front-content,
+.back-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e4e2dd;
+}
+
+.page-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-text {
+  position: absolute;
+  bottom: 25px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 8px 20px;
+  border-radius: 20px;
   font-weight: bold;
-  font-style: normal;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
 }
-.start {
-  background-image: url("img/primariska1.jpg");
-  padding-bottom: 35%;
-  background-repeat: no-repeat;
-  background-size: 100%;
+
+/* --- TIMER STYLING --- */
+.timer-page {
+  flex-direction: column;
+  text-align: center;
+  padding: 15px;
 }
-.about {
-  background-image: url("img/primariska2.jpg");
-  padding-bottom: 55%;
-  background-repeat: no-repeat;
-  background-size: 100%;
+
+.timer-title {
+  color: #004aad;
+  margin-bottom: 15px;
+  font-size: clamp(1.1rem, 4vw, 1.5rem); /* Teks judul dinamis */
 }
-.songs {
-  font-family: "Lobster Two", sans-serif;
-  font-weight: 400;
-  font-style: italic;
+
+.timer-text {
+  font-size: clamp(1rem, 3.5vw, 1.4rem); /* Teks waktu dinamis, mengecil di HP */
+  font-weight: bold;
+  color: #004aad;
+  background: rgba(255, 255, 255, 0.9);
+  padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 20px);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Agar tidak menabrak pinggiran kertas di HP */
+}
+
+.timer-text span {
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Teks "(Total Hari)" lebih kecil */
+  font-weight: normal;
+}
+
+/* --- CONTROLS --- */
+.controls {
+  display: flex;
+  gap: 40px;
+  z-index: 10;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+button i {
+  font-size: 45px;
+  color: #d4a373;
+  transition: 0.3s;
+}
+
+button:hover i {
+  color: #b5835a;
+  transform: scale(1.1);
+}
+
+/* 📱 MOBILE MODE */
+@media (max-width: 768px) {
+  .book {
+    width: clamp(140px, 45vw, 220px);
+  }
+  button i {
+    font-size: 35px;
+  }
+  .page-text {
+    font-size: 0.9rem;
+    padding: 6px 15px;
+    bottom: 15px;
+  }
 }
